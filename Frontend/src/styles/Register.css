@@ -1,0 +1,296 @@
+@import url('https://fonts.googleapis.com/css2?family=Bungee&family=Lato:wght@400;900&family=Roboto:wght@400;700;900&display=swap');
+
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  height: 100%;
+  font-family: 'Roboto', sans-serif;
+}
+
+.container {
+  display: flex;
+  height: 100vh;
+  min-width: 1000px; /* Para pantallas grandes */
+  overflow: hidden;
+}
+
+.error {
+  color: red;
+  font-size: 0.7rem;
+  margin-top: 1px;
+  margin-bottom: 1px;
+  margin-left: 20px;
+}
+
+.logout-btn {
+  padding: 8px 16px;
+  font-size: 1rem;
+  cursor: pointer;
+  background-color: #cc0000;
+  color: white;
+  border: none;
+  border-radius: 4px;
+}
+
+/* Panel izquierdo */
+.left-panel {
+  width: 70vw;
+  min-width: 700px;
+  height: 100vh;
+  position: relative;
+  background-color: #d87e36;
+  overflow: hidden;
+  flex-shrink: 0;
+  font-family: 'Bungee', sans-serif;
+}
+
+.left-panel {
+  position: relative;
+  overflow: hidden;
+}
+
+.left-panel::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: transparent;
+  pointer-events: none;
+  z-index: 2;
+  transition: background 0.3s ease;
+}
+
+.background {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  z-index: 1;
+}
+
+.game-title {
+  width: 28vw;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -110%);
+  font-size: 60px;
+  color: black;
+  z-index: 3;
+  text-align: center;
+}
+
+.studio {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 12px;
+  color: white;
+  font-weight: bold;
+  z-index: 3;
+
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.studio-logo {
+  height: 3em;
+  color: white;
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
+  display: inline-block;
+  filter: brightness(0) invert(1);
+}
+
+/* Panel derecho */
+.right-panel {
+  width: 30%;
+  background-color: white;
+  padding: 60px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: monospace;
+}
+
+.logo {
+  width:250px;
+  margin-bottom: 10px;
+}
+
+.register-title {
+  width: 10vm; 
+  font-family: 'Metal Mania', cursive;
+  font-size: 30px;
+  margin-bottom: 20px;
+}
+
+form {
+  width: 100%;
+  max-width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  background: #eeeeee;
+  font-size: 15px;
+  font-family: monospace;
+}
+
+.stay-signed {
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.social-options {
+  margin-top: 10px;
+  width: 100%;
+  text-align: center;
+}
+
+.social-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 5px;
+}
+
+.circle {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+}
+
+.circle.blue {
+  background-color: #3b82f6;
+}
+
+.circle.white {
+  background-color: #ffffff;
+  border: 1px solid #000;
+}
+
+.circle.dark {
+  background-color: #1f2937;
+}
+
+.submit-btn {
+  margin-top: 20px;
+  padding: 14px;
+  background-color: black;
+  color: white;
+  border-radius: 30px;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+/* MEDIA QUERIES para responsividad */
+
+/* Para pantallas menores a 1000px */
+@media (max-width: 999px) {
+  .container {
+    min-width: auto;
+    flex-direction: column;
+    height: auto;
+  }
+
+  .left-panel {
+    width: 100%;
+    min-width: auto;
+    height: 300px;
+  }
+
+  .left-panel::after {
+    background: rgba(128, 128, 128, 0.5); /* Gris semitransparente */
+  }
+
+  .game-title {
+    width: 80%;
+    font-size: 36px;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .right-panel {
+    width: 100%;
+    padding: 30px 20px;
+  }
+
+  form {
+    max-width: 100%;
+  }
+}
+
+/* Para pantallas menores a 600px (móviles) */
+@media (max-width: 599px) {
+  body, html {
+    font-size: 14px;
+  }
+
+ .left-panel::after {
+    background: rgba(128, 128, 128, 0.5); /* Gris semitransparente */
+  }
+
+  .game-title {
+    font-size: 28px;
+  }
+
+  .register-title {
+    font-size: 22px;
+  }
+
+  input[type="text"],
+  input[type="password"] {
+    padding: 10px;
+    font-size: 12px;
+  }
+
+  .submit-btn {
+    font-size: 16px;
+    padding: 12px;
+  }
+
+  .social-buttons {
+    gap: 6px;
+  }
+
+  .circle {
+    width: 20px;
+    height: 20px;
+  }
+
+  .studio-logo {
+    height: 2em;
+  }
+
+  .studio {
+    font-size: 10px;
+    top: 5px;
+    left: 5px;
+  }
+}
+
